@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wiki_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.wikipediasummarizer.ui.fragments.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_searchWikiFragment"
+            app:destination="@id/searchWikiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchWikiFragment"
+        android:name="com.example.wikipediasummarizer.ui.fragments.SearchWikiFragment"
+        android:label="SearchWikiFragment">
+        <action
+            android:id="@+id/action_searchWikiFragment_to_wikiArticleFragment"
+            app:destination="@id/wikiArticleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wikiArticleFragment"
+        android:name="com.example.wikipediasummarizer.ui.fragments.WikiArticleFragment"
+        android:label="WikiArticleFragment" />
+</navigation>
