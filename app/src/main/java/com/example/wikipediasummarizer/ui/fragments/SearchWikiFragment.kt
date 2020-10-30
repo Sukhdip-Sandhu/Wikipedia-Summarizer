@@ -69,7 +69,7 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { wikiResponse ->
-                        wikiArticleAdapter.differ.submitList(wikiResponse.query.search.toList())
+                        wikiArticleAdapter.differ.submitList(wikiResponse.query.pages.toList())
                     }
                 }
                 is Resource.Error -> {

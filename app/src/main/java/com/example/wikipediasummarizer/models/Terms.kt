@@ -3,7 +3,7 @@ package com.example.wikipediasummarizer.models
 
 import com.google.gson.annotations.SerializedName
 
-data class Query(
-    @SerializedName("pages")
-    val pages: MutableList<Page>
+data class Terms(
+    @SerializedName("description")
+    val description: List<String>
 )
