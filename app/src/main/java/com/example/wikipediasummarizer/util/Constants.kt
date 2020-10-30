@@ -4,5 +4,6 @@ class Constants {
     companion object {
         const val BASE_URL: String = "https://en.wikipedia.org"
         const val SEARCH_ARTICLE_DELAY = 500L
+        const val QUERY_PAGE_SIZE  = 20
     }
 }

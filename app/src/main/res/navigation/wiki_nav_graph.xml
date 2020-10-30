@@ -23,5 +23,9 @@
     <fragment
         android:id="@+id/wikiArticleFragment"
         android:name="com.example.wikipediasummarizer.ui.fragments.WikiArticleFragment"
-        android:label="WikiArticleFragment" />
+        android:label="WikiArticleFragment" >
+        <argument
+            android:name="Title"
+            app:argType="string" />
+    </fragment>
 </navigation>
