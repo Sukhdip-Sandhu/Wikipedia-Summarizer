@@ -58,7 +58,9 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
                 delay(SEARCH_ARTICLE_DELAY)
                 editable?.let {
                     if (editable.toString().isNotBlank()) {
-                        viewModel.searchArticles(editable.toString())
+                        viewModel.searchArticles(editable.toString(), false)
+                    } else {
+                        wikiArticleAdapter.differ.submitList(emptyList())
                     }
                 }
             }
@@ -75,7 +77,7 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Toast.makeText(context, "An error occured $message", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     }
                 }
                 is Resource.Loading -> {
@@ -131,7 +133,7 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
                     isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
             Log.d(TAG, "SHOULD PAGINATE??: $shouldPaginate")
             if (shouldPaginate) {
-                viewModel.searchArticles(search_wiki_search_view.text.toString())
+                viewModel.searchArticles(search_wiki_search_view.text.toString(), true)
                 isScrolling = false
             }
         }
