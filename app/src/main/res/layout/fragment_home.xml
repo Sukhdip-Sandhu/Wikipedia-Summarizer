@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:lineSpacingExtra="8dp"
-        android:text="Hi !\nWhat are you\nlooking for?"
+        android:text="Hello! 👋\nWhat are you\nlooking for?"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"

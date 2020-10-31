@@ -13,12 +13,14 @@
                 android:rotation="360"
                 android:translationX="300dp"
                 motion:framePosition="0"
-                motion:motionTarget="@+id/logo" />
+                motion:motionTarget="@+id/logo"
+                android:alpha="1" />
             <KeyAttribute
                 android:rotation="0"
                 android:translationX="0dp"
                 motion:framePosition="50"
-                motion:motionTarget="@+id/logo" />
+                motion:motionTarget="@+id/logo"
+                android:alpha="1" />
             <KeyAttribute
                 android:alpha="0"
                 motion:framePosition="0"
@@ -39,6 +41,14 @@
                 android:scaleY="100"
                 motion:framePosition="100"
                 motion:motionTarget="@+id/circle" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logo"
+                motion:framePosition="100"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logo"
+                motion:framePosition="0"
+                android:alpha="0.5" />
         </KeyFrameSet>
     </Transition>
 
