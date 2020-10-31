@@ -137,7 +137,6 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
             val isTotalMoreThanVisible = totalItemCount >= Constants.QUERY_PAGE_SIZE
             val shouldPaginate =
                 isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
-            Log.d(TAG, "SHOULD PAGINATE??: $shouldPaginate")
             if (shouldPaginate) {
                 viewModel.searchArticles(search_wiki_search_view.text.toString(), true)
                 isScrolling = false

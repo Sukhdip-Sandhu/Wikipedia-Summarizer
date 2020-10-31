@@ -14,14 +14,15 @@ import com.example.wikipediasummarizer.ui.WikiViewModel
 import com.example.wikipediasummarizer.util.Constants.Companion.WIKI_URL
 import com.example.wikipediasummarizer.util.Resource
 import kotlinx.android.synthetic.main.fragment_wiki_article.*
+import java.text.BreakIterator
+import java.util.*
 
 class WikiArticleFragment : Fragment(R.layout.fragment_wiki_article) {
 
 
     lateinit var viewModel: WikiViewModel
-    val args: WikiArticleFragmentArgs by navArgs()
-    var thisissostupid = false
-
+    private val args: WikiArticleFragmentArgs by navArgs()
+    var showSummaryAlertDialog = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,19 +38,19 @@ class WikiArticleFragment : Fragment(R.layout.fragment_wiki_article) {
         }
 
         viewModel.summary.observe(viewLifecycleOwner, Observer { response ->
-            Log.d("FRIG", "Observing...")
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
-                    if (thisissostupid) {
+                    if (showSummaryAlertDialog) {
                         response.data.let { summaryResponse ->
                             val summaryMessage = summaryResponse?.summary?.replace(". ", "\n\n")!!.replace("[...]", "")
                             val builder = AlertDialog.Builder(activity)
-                                    .setTitle("Summary")
+                                    .setTitle("AI Summary")
+                                    .setIcon(R.drawable.ic_baseline_assistant_24_blue)
                                     .setMessage(summaryMessage)
                                     .setPositiveButton("Great!", null)
                             builder.create().show()
-                            thisissostupid = false
+                            showSummaryAlertDialog = false
                         }
                     }
                 }
@@ -57,7 +58,7 @@ class WikiArticleFragment : Fragment(R.layout.fragment_wiki_article) {
                     hideProgressBar()
                 }
                 is Resource.Loading -> {
-                    thisissostupid = true
+                    showSummaryAlertDialog = true
                     showProgressBar()
                 }
             }
