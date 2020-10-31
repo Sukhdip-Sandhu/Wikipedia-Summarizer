@@ -1,12 +1,17 @@
 package com.example.wikipediasummarizer.ui.fragments
 
+import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AbsListView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -33,8 +38,18 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
     lateinit var viewModel: WikiViewModel
     lateinit var wikiArticleAdapter: WikiArticleAdapter
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.search_menu, menu)
+//        val searchManager = context?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+//        (menu.findItem(R.id.menu_search_view).actionView as SearchView).apply {
+//            setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
+//        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         viewModel = (activity as MainActivity).viewModel
         search_wiki_search_view.requestFocus()
         showKeyboard()

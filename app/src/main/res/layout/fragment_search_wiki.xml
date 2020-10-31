@@ -4,21 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/search_wiki_search_view"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:hint="Search Wikipedia Articles..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:searchIcon="@drawable/ic_baseline_search_24" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/search_wiki_search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:drawableEnd="@drawable/ic_baseline_close_24"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/white"
+                android:hint="Search Wikipedia Articles..."
+                android:textColor="@color/white"
+                android:textColorHint="@color/transparent_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <ProgressBar
         android:id="@+id/search_fragment_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminateTint="@color/default_blue"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,9 +52,9 @@
         android:id="@+id/wiki_article_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:paddingBottom="?attr/actionBarSize"
-        app:layout_constraintTop_toBottomOf="@+id/search_wiki_search_view" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
