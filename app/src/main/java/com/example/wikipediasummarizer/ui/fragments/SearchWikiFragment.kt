@@ -38,18 +38,8 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
     lateinit var viewModel: WikiViewModel
     lateinit var wikiArticleAdapter: WikiArticleAdapter
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.search_menu, menu)
-//        val searchManager = context?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
-//        (menu.findItem(R.id.menu_search_view).actionView as SearchView).apply {
-//            setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
-//        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
         viewModel = (activity as MainActivity).viewModel
         search_wiki_search_view.requestFocus()
         showKeyboard()
@@ -60,8 +50,8 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
                 putString("Title", wikiArticle.title)
             }
             findNavController().navigate(
-                    R.id.action_searchWikiFragment_to_wikiArticleFragment,
-                    bundle
+                R.id.action_searchWikiFragment_to_wikiArticleFragment,
+                bundle
             )
         }
 
@@ -104,7 +94,8 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
     }
 
     private fun showKeyboard() {
-        val inputMethodManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
 
     }
@@ -145,7 +136,7 @@ class SearchWikiFragment : Fragment(R.layout.fragment_search_wiki) {
             val isNotAtBeginning = firstVisibleItemPosition >= 0
             val isTotalMoreThanVisible = totalItemCount >= Constants.QUERY_PAGE_SIZE
             val shouldPaginate =
-                    isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
+                isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
             Log.d(TAG, "SHOULD PAGINATE??: $shouldPaginate")
             if (shouldPaginate) {
                 viewModel.searchArticles(search_wiki_search_view.text.toString(), true)
