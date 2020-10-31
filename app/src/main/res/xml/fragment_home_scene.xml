@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1500">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/welcome_text"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/welcome_text"
+               motion:framePosition="0"
+               android:alpha="0.5" />
+           <KeyAttribute
+               motion:motionTarget="@+id/welcome_text"
+               motion:framePosition="80"
+               android:alpha="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/welcome_text"
+               motion:framePosition="0"
+               android:translationY="60dp" />
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            motion:layout_constraintBottom_toTopOf="@+id/welcome_text"
+            android:id="@+id/view2" />
+        <Constraint
+            android:layout_height="200dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="200dp"
+            android:id="@+id/rect_box"
+            motion:layout_constraintBottom_toTopOf="@+id/search_button" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+    </ConstraintSet>
+</MotionScene>

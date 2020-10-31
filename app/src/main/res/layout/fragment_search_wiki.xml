@@ -26,6 +26,7 @@
                 android:drawablePadding="4dp"
                 android:drawableTint="@color/white"
                 android:hint="Search Wikipedia Articles..."
+                android:inputType="text"
                 android:textColor="@color/white"
                 android:textColorHint="@color/transparent_white"
                 app:layout_constraintEnd_toEndOf="parent"

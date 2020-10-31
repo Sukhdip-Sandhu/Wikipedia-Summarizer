@@ -11,4 +11,5 @@
     <color name="default_blue">#2F80ED</color>
     <color name="default_blue_dark">#2A73D5</color>
     <color name="default_blue_light">#eaf2fd</color>
+    <color name="light_gray">#F6F6F6</color>
 </resources>
