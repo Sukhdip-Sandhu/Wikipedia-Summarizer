@@ -18,12 +18,16 @@
         android:label="SearchWikiFragment">
         <action
             android:id="@+id/action_searchWikiFragment_to_wikiArticleFragment"
-            app:destination="@id/wikiArticleFragment" />
+            app:destination="@id/wikiArticleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/wikiArticleFragment"
         android:name="com.example.wikipediasummarizer.ui.fragments.WikiArticleFragment"
-        android:label="WikiArticleFragment" >
+        android:label="WikiArticleFragment">
         <argument
             android:name="Title"
             app:argType="string" />

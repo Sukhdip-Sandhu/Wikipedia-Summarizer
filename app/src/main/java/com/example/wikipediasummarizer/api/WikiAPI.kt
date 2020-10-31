@@ -1,6 +1,6 @@
 package com.example.wikipediasummarizer.api
 
-import com.example.wikipediasummarizer.models.WikiSearchResponse
+import com.example.wikipediasummarizer.models.wiki.WikiSearchResponse
 import com.example.wikipediasummarizer.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.example.wikipediasummarizer.util.Constants.Companion.THUMBNAIL_WIDTH
 import retrofit2.Response

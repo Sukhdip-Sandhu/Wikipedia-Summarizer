@@ -1,4 +1,4 @@
-package com.example.wikipediasummarizer.models
+package com.example.wikipediasummarizer.models.wiki
 
 
 import com.google.gson.annotations.SerializedName

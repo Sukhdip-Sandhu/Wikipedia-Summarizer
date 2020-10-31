@@ -1,6 +1,6 @@
 package com.example.wikipediasummarizer.api
 
-import com.example.wikipediasummarizer.util.Constants.Companion.API_BASE_URL
+import com.example.wikipediasummarizer.util.Constants.Companion.WIKI_API_BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -15,7 +15,7 @@ class RetrofitInstance {
                 .addInterceptor(logging)
                 .build()
             Retrofit.Builder()
-                .baseUrl(API_BASE_URL)
+                .baseUrl(WIKI_API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

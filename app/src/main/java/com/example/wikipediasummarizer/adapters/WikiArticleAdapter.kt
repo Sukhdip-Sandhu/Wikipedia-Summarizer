@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wikipediasummarizer.R
-import com.example.wikipediasummarizer.models.Page
+import com.example.wikipediasummarizer.models.wiki.Page
 import kotlinx.android.synthetic.main.item_wiki_article_preview.view.*
 
 class WikiArticleAdapter : RecyclerView.Adapter<WikiArticleAdapter.WikiArticleViewHolder>() {
