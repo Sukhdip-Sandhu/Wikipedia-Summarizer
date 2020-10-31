@@ -9,8 +9,18 @@
     app:layoutDescription="@xml/activity_splash_scene"
     tools:context=".ui.SplashActivity">
 
+    <TextView
+        android:id="@+id/circle"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/gray_box"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:src="@drawable/wikipedia"

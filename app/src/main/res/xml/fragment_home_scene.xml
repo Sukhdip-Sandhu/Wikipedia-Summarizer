@@ -15,10 +15,6 @@
                android:alpha="0" />
            <KeyAttribute
                motion:motionTarget="@+id/welcome_text"
-               motion:framePosition="0"
-               android:alpha="0.5" />
-           <KeyAttribute
-               motion:motionTarget="@+id/welcome_text"
                motion:framePosition="80"
                android:alpha="1" />
            <KeyAttribute

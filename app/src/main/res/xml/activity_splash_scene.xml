@@ -6,44 +6,43 @@
         motion:autoTransition="animateToEnd"
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="2000">
+        motion:duration="2000"
+        motion:motionInterpolator="easeIn">
         <KeyFrameSet>
             <KeyAttribute
-                android:scaleX="1.2"
-                android:scaleY="1.2"
+                android:rotation="360"
+                android:translationX="300dp"
                 motion:framePosition="0"
-                motion:motionTarget="@+id/imageView" />
+                motion:motionTarget="@+id/logo" />
             <KeyAttribute
-                android:scaleX="0.7"
-                android:scaleY="0.7"
-                motion:framePosition="20"
-                motion:motionTarget="@+id/imageView" />
+                android:rotation="0"
+                android:translationX="0dp"
+                motion:framePosition="50"
+                motion:motionTarget="@+id/logo" />
             <KeyAttribute
-                android:scaleX="0.7"
-                android:scaleY="0.7"
-                motion:framePosition="40"
-                motion:motionTarget="@+id/imageView" />
+                android:alpha="0"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/circle" />
             <KeyAttribute
-                android:scaleX="50"
-                android:scaleY="50"
+                android:alpha="0"
+                motion:framePosition="49"
+                motion:motionTarget="@+id/circle" />
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1"
+                android:scaleY="1"
+                motion:framePosition="50"
+                motion:motionTarget="@+id/circle" />
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="100"
+                android:scaleY="100"
                 motion:framePosition="100"
-                motion:motionTarget="@+id/imageView" />
+                motion:motionTarget="@+id/circle" />
         </KeyFrameSet>
-<!--        <OnClick-->
-<!--            motion:clickAction="transitionToEnd"-->
-<!--            motion:targetId="@+id/imageView" />-->
     </Transition>
 
-    <ConstraintSet android:id="@+id/start">
-        <Constraint
-            android:id="@+id/imageView"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
-    </ConstraintSet>
+    <ConstraintSet android:id="@+id/start"></ConstraintSet>
 
     <ConstraintSet android:id="@+id/end"></ConstraintSet>
 </MotionScene>
